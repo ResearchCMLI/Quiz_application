@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quesgen"
+version = "1.0.0"
+description = "LLM project to generate questions and analyze answers"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "streamlit",
+    "tomli"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort"
+]
+
+[tool.setuptools]
+package-dir = {"" = "."}
+packages = ["quesgen"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[mysql]
+host = "10.15.1.2"
+user = "quiz_application"
+password = "quiz123"
+database = "quiz_db"
+
+[tool.isort]
+profile = "black"
+[server]
+# Address to bind to (0.0.0.0 = all network interfaces)
+address = "10.15.1.2"
+
+# Port number for the server
+port = 8501
+
+# Disable CORS to allow cross-origin requests (use with care)
+enableCORS = false
+
+# Whether to show the developer toolbar (helpful in dev mode)
+enableXsrfProtection = false
